@@ -1,0 +1,5 @@
+.bg{
+    background-color: transparent !important;
+    border-radius: 10px;
+    backdrop-filter: blur(20px) !important;
+}

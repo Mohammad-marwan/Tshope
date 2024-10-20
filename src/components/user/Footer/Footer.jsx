@@ -5,7 +5,7 @@ import { FaFacebookF,FaInstagram,FaTwitter,FaTiktok   } from "react-icons/fa";
 export default function Footer() {
   return (
     <>
-     <footer className={`${style.bgFooter} text-dark h-25 mt-5`}>
+     <footer className=' text-dark h-25  shadow p-3 mt-5 bg-body rounded'>
   <div className="container ">
     <div className="row g-5">
       <div className="col-lg-6 col-md-12 d-flex flex-column gap-3">
