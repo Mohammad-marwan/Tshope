@@ -1,0 +1,30 @@
+.bgFooter{
+    background-color: #ffffb6	;
+}
+
+.img_Footer{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.imgFooter{
+    width:100%;
+    display: flex;
+}
+.icon{
+    width:20px;
+    height:20px;
+    color: black;
+
+}
+.icon:hover{
+    transition: all 0.5s ease;
+    color: aqua;
+    cursor: pointer;
+}
+@media(max-width:768){
+.footerItems{
+    text-align: center !important;
+}
+
+}
