@@ -4,20 +4,27 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import Laoder from '../../../components/user/Laoder/Laoder.jsx';
 export default function CategoryDetails() {
     const [products , setProducts] = useState([]);
     const {ID} = useParams();
     const getCategores = async ()=>{
+try{
         const {data} = await axios.get(`https://ecommerce-node4.onrender.com/products/category/${ID}`);
         setProducts(data.products);
-        console.log(data.products);
+        console.log(data.products);}
+        catch(error){
+            <h2>(error.message);</h2>
+        }finally{
+            
+        }
     }
 
 
     useEffect(()=>{
         getCategores()
     }, [])
+    if(products.length == 0)return <Laoder/>;
   return (
     <div className="container">
     <div className="row">

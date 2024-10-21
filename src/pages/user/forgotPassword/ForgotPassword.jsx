@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFormik } from 'formik';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default function ForgotPassword() {
     const formik = useFormik({
@@ -36,6 +37,7 @@ export default function ForgotPassword() {
     name="code" value={formik.values.code} onChange={formik.handleChange} />
     <label htmlFor="floatingPassword">Code</label>
   </div>
+  <Link to={'/Sendcode'}>Sendcode</Link>
   <button type="submit" className='btn btn-dark mb-3' >Reset Password</button>
 </form>
 

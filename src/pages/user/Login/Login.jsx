@@ -8,9 +8,11 @@ import { jwtDecode } from 'jwt-decode';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import style from './Login.module.css'; 
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Login() {
+  const navigate = useNavigate();
   const {isLogin , setIsLogin,userData , setUserData} = useContext(UserContext);
   const [errors,setErrors] = useState("");
   const schema = yup.object({
@@ -36,6 +38,7 @@ export default function Login() {
         setIsLogin(true);
         const decoded = jwtDecode(data.token);
         setUserData(decoded);
+        navigate('/')
         console.log(decoded); 
       }
     }
@@ -52,7 +55,8 @@ export default function Login() {
     <>
     <div className="container">
     <h2>{errors}</h2>
-     <form onSubmit={formik.handleSubmit} className={`${style.bg} w-50 m-auto d-flex flex-column shadow p-3 bg-body rounded`}>
+     <form onSubmit={formik.handleSubmit} className={` w-50 m-auto d-flex flex-column shadow p-3 rounded`}>
+  <div className={style.bg}>
   <div className="form-floating my-3 text-center">
     <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com"
     name='email' value={formik.email} onChange={formik.handleChange} />
@@ -66,10 +70,11 @@ export default function Login() {
     {formik.errors.password?<div className='alert alert-danger'>{formik.errors.password}</div>:null}
     <div className="formBtn d-flex justify-content-between align-items-center my-3 ">
     <button className='btn btn-white ' type="submit">Login</button>
-    <Link to={'/Sendcode'}>Sendcode</Link>
     <Link  to={'/ForgotPassword'}>ForgotPassword</Link>
     </div>
   </div>
+  </div>
+  
   </form>
     </div>
   </>
