@@ -53,10 +53,11 @@ export default function Login() {
 
   return (
     <>
-    <div className="container">
+  <div className={style.bg}>
+  <div className="container">
     <h2>{errors}</h2>
      <form onSubmit={formik.handleSubmit} className={` w-50 m-auto d-flex flex-column shadow p-3 rounded`}>
-  <div className={style.bg}>
+  <div className={style.bgLogin}>
   <div className="form-floating my-3 text-center">
     <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com"
     name='email' value={formik.email} onChange={formik.handleChange} />
@@ -69,7 +70,7 @@ export default function Login() {
     <label htmlFor="floatingPassword">Password</label>
     {formik.errors.password?<div className='alert alert-danger'>{formik.errors.password}</div>:null}
     <div className="formBtn d-flex justify-content-between align-items-center my-3 ">
-    <button className='btn btn-white ' type="submit">Login</button>
+    <button className='btn btn-light ' type="submit">Login</button>
     <Link  to={'/ForgotPassword'}>ForgotPassword</Link>
     </div>
   </div>
@@ -77,6 +78,7 @@ export default function Login() {
   
   </form>
     </div>
+  </div>
   </>
 
       

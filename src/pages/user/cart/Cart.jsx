@@ -40,6 +40,10 @@ export default function Cart() {
                 },
             })
             console.log(data);
+            if(data.message == "success"){
+                toast.success("Item removed successfully");
+              
+            }
         } catch (e) {
             toast.error(e.message);
         }
@@ -54,6 +58,9 @@ export default function Cart() {
                 },
             })
             console.log(data);
+            if(data.message == "success"){
+                toast.success("Cart cleared successfully");
+            }
         }
         catch (e) {
             toast.error(e.message);
@@ -101,7 +108,6 @@ export default function Cart() {
         }
     }
 
-
     return (
         <>
             <h1 className='text-center'>Cart</h1>
@@ -130,6 +136,7 @@ export default function Cart() {
                                         <td>{<img style={{width:'50px'}} src={pro.details.mainImage.secure_url} />}</td>
                                         <td><span className='btn btn-primary text-white p-1' onClick={()=>increaseQty(pro.details._id)}>+</span> <span>{pro.quantity}</span> <span onClick={()=> decraseQuantity(pro.details._id)} className='btn btn-primary text-white p-1'>-</span></td>
                                         <td>{pro.details.finalPrice * pro.quantity}$</td>
+                                        <td><button className='btn btn-danger' onClick={()=>removeItem(pro.productId)}>removeItem</button></td>
                                     </tr>
                                 
                                 )

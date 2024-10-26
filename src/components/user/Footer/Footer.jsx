@@ -1,17 +1,18 @@
 import React from 'react'
 import Logo from './FooterLogo/NavbarLogo.jpg'
 import style from './Footer.Module.css'
+import { AiFillCaretLeft,AiFillCaretRight  } from "react-icons/ai";
 import { FaFacebookF,FaInstagram,FaTwitter,FaTiktok   } from "react-icons/fa";
 export default function Footer() {
   return (
     <>
-     <footer className=' text-dark h-25  shadow p-3 mt-5 bg-body rounded'>
+     <footer className=' text-dark h-25 shadow p-3 bg-light rounded '>
   <div className="container ">
     <div className="row g-5">
       <div className="col-lg-6 col-md-12 d-flex flex-column gap-3">
       <div className="start_item d-flex flex-column gap-3">
-        <div className={`${style.img_Footer}`}>
-        <img src={Logo} className={`${style.imgFooter}`}/>
+        <div >
+        <h4>MVMT<AiFillCaretRight/><AiFillCaretLeft/></h4>
 
         </div>
         <p>Increase savings to 20% off your first purchase and keep up with our latest drops, special editions and members-only sales.

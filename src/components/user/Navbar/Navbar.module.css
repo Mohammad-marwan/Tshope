@@ -13,6 +13,7 @@
 .bg .ColorText {
     
     color: #000000 !important;
+    cursor: pointer !important;
 }
 .icon{
     width:20px;

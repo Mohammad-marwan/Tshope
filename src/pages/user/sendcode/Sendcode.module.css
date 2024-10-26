@@ -3,7 +3,7 @@
     background-size: cover;
     background-position: center;
   }
-  .bgLogin{
+  .bgsendcode{
     background-color: transparent;
     border-radius: 10px;
     backdrop-filter: blur(10px);

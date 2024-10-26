@@ -1,0 +1,17 @@
+.bg{
+    background-image: url("../Home/HomeImg/MVMTW.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  .bgregister{
+    background-color: transparent;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(214, 214, 214, 0.329);
+  }
+  .bgButton{
+    background-color: transparent;
+
+  }

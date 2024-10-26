@@ -2,6 +2,7 @@ import React from 'react'
 import { useFormik } from 'formik';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import style from './ForgotPassword.module.css';
 
 export default function ForgotPassword() {
     const formik = useFormik({
@@ -21,7 +22,9 @@ export default function ForgotPassword() {
     
     })
   return (
-   <form onSubmit={formik.handleSubmit}>
+ <div className={style.bg}>
+   <div className="container">
+     <form onSubmit={formik.handleSubmit} className={`${style.bgforgot} w-50 m-auto d-flex flex-column shadow p-3 rounded`}>
   <div className="form-floating mb-3">
     <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com"
     name="email" value={formik.values.email} onChange={formik.handleChange} />
@@ -37,9 +40,11 @@ export default function ForgotPassword() {
     name="code" value={formik.values.code} onChange={formik.handleChange} />
     <label htmlFor="floatingPassword">Code</label>
   </div>
-  <Link to={'/Sendcode'}>Sendcode</Link>
-  <button type="submit" className='btn btn-dark mb-3' >Reset Password</button>
+  <Link to={'/Sendcode'} className='mb-3'>Sendcode</Link>
+  <button type="submit" className='btn btn-light mb-3' >Reset Password</button>
 </form>
 
+  </div>
+ </div>
   )
 }

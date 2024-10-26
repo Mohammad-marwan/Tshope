@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import {  toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import Laoder from '../../../components/user/Laoder/Laoder.jsx';
 
 export default function ProductsDetails() {
   const {ProductsDetailsID} = useParams();
@@ -38,6 +39,8 @@ export default function ProductsDetails() {
  
   
   }
+  if(products.length == 0)return <Laoder /> ; 
+  
   return (
     <div className="container">
     <div className="row">

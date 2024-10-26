@@ -45,7 +45,7 @@ export default function Navbar() {
         </li>
         <li className="nav-item">
        
-          <a className="nav-link active " onClick={handleLogout} aria-current="page">Logout</a>
+          <a className={`nav-link active ${style.ColorText}`} onClick={handleLogout} aria-current="page">Logout</a>
         </li>
         <li className="nav-item"></li>
       </>
@@ -62,9 +62,9 @@ export default function Navbar() {
        
       </ul>
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0 d-flex gap-3">
-        <li><CiSearch className={`${style.ColorText}`}/></li>  
+      <Link className={`nav-link active ${style.ColorText}`}><li><CiSearch className={`${style.icon} fw-3`}/></li></Link>  
         <Link className={`nav-link active ${style.ColorText}`} to={'/Cart'}>  <li>cart <FaShoppingBag className={`${style.icon}`}/></li> </Link>
-        <Link className={`nav-link active ${style.ColorText}`} to={'/Profile'}> <li> Profile <FaUser  className={`${style.ColorText}`}/></li> </Link>
+        <Link className={`nav-link active ${style.ColorText}`} to={'/Profile'}> <li> Profile <FaUser  className={`${style.icon}`}/></li> </Link>
       </ul>
     </div>
   </div>
