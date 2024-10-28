@@ -2,6 +2,7 @@ import React from 'react'
 import Categores from '../Categores/Categores.jsx'
 import style from './Home.module.css'
 import image from './HomeImg/watch.jpg'
+import { Link } from 'react-router-dom'
 export default function Home() {
   return (
   
@@ -16,7 +17,7 @@ export default function Home() {
             <div className="d-flex flex-column justify-content-center align-items-start ms-5 " style={{height:"100%"}}>
             <h1 className='text-light'>Welcome to <span className='fs-1 text-info'>MVMT</span></h1>
         <p className='text-light'>Discover the latest fashion trends and accessories</p>
-        <button type="button" className="btn btn-info">Shop Now</button>
+        <Link className="btn btn-info" to={'/allproducts'}>Shop Now</Link>
             </div>
           </div>
         </div>

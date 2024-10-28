@@ -13,6 +13,7 @@ import Cart from "../pages/user/cart/Cart.jsx";
 import Myorder from "../pages/user/order/Myorder.jsx";
 import Profile from "../pages/user/profile/Profile.jsx";
 import Review from "../pages/user/review/Review.jsx";
+import AllProduct from "../pages/user/Products/AllProduct.jsx";
 const router = createBrowserRouter([
     {path:'/',element:<Root/>,
         children:[
@@ -85,6 +86,11 @@ const router = createBrowserRouter([
     element:
     <ProtectedRoiter>
     <Review/>
+    </ProtectedRoiter>
+},{path:'/allproducts',            
+    element:
+    <ProtectedRoiter>
+    <AllProduct/>
     </ProtectedRoiter>
 },
         ]
