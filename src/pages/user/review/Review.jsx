@@ -32,7 +32,7 @@ export default function Review() {
         createReview();
     },[])
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form onSubmit={formik.handleSubmit} className='w-50 m-auto shadow p-3 rounded my-3'>
         <select class="form-select" aria-label="Default select example "
         name='rating' value={formik.values.rating} onChange={formik.handleChange}>
   <option selected>Open this select menu</option>
@@ -47,7 +47,7 @@ export default function Review() {
    name='comment' value={formik.values.comment} onChange={formik.handleChange}></textarea>
   <label for="floatingTextarea">Comments</label>
 </div>
-<button type='submit' className='btn btn-dark mt-3'>send</button>
+<button type='submit'  className='btn btn-success mt-3'>send</button>
       
     </form>
   )

@@ -52,8 +52,9 @@ catch (error) {
 if(info.length == 0)return <Laoder/>;
   return (
    <>
+   <h1 className='text-center mt-3'>My Order</h1>
    {messageserrorserrors?<div className="alert alert-danger">{messageserrorserrors}</div>:null}
-   <table className="table shadow p-3 mb-5 bg-body rounded">
+   <table className="table shadow p-3 my-5 bg-body rounded">
   <thead>
     <tr>
       <th scope="col">address</th>

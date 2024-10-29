@@ -23,7 +23,7 @@ export default function Navbar() {
     
   return (
     
-<nav className={`${style.bg} navbar navbar-expand-lg shadow p-3 bg-light rounded fixed-top`}>
+<nav className={`${style.bg} navbar navbar-expand-lg shadow p-3 bg-light rounded `}>
   <div className="container">
     <a className="navbar-brand" href="#">MVMT<AiFillCaretRight/><AiFillCaretLeft/></a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,6 +39,9 @@ export default function Navbar() {
         </li>
       <li className="nav-item">
           <Link className={`nav-link active ${style.ColorText}`} aria-current="page" to={'/'}>Home</Link>
+        </li>
+        <li className="nav-item">
+          <Link className={`nav-link active ${style.ColorText}`} aria-current="page" to={'/AllProducts'}>All Products</Link>
         </li>
         <li className="nav-item">
           <Link className={`nav-link active ${style.ColorText}`} aria-current="page" to={'/CreateOrder'}>CreateOrder</Link>

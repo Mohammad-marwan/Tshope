@@ -24,10 +24,10 @@ export default function Profile() {
     useEffect(()=>{
         getProfile();
     },[])
-    if(profile.length == 0)return <Laoder /> ; 
+    if(JSON.stringify(profile)== '{}')return <Laoder /> ; 
   return (
     <div className="container">
-        <div className="Profile m-auto text-center shadow p-3 bg-light rounded">
+        <div className="Profile my-5 text-center shadow p-3 bg-light rounded">
             <h2>Profile</h2>
             <div className="row mt-2">
                 <div className="col-lg-12">

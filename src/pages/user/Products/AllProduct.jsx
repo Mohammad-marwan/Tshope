@@ -1,46 +1,42 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Laoder from '../../../components/user/Laoder/Laoder.jsx';
-
-export default function AllProduct(page) {
+import { Link } from 'react-router-dom';
+export default function AllProduct() {
+  const [page ,setPage] =useState(1);
+  const [pageList,setPageList] = useState([]);
     const [products , setProducts] = useState([]);
-   const allProducts = async(page=1)=>{
+   const allProducts = async()=>{
     try{
-        const {data} = await axios.get('https://ecommerce-node4.onrender.com/products?page=1&limit=5');
+        const {data} = await axios.get(`https://ecommerce-node4.onrender.com/products?page=${page}&limit=5`);
         setProducts(data.products);
         console.log(data);
         const numberOfPages = Math.ceil( data.total / 5);
-        console.log(numberOfPages);
+        createPageList(numberOfPages);
         
     }
    
    catch(e){
     console.error(e);
    }
-   const paginationLinks = ``;
-   if(page > 1){
-    paginationLinks +=`<button onClick=allProducts(${page-i}) class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span> </button>`
-   }else{
-    paginationLinks += `<button class="page-link disabled" aria-label="Previous"><span aria-hidden="true">&laquo;</span></button>`
-   }
-for(const i=1; i<numberOfPages; i++){
-    paginationLinks += `<li class="page-item"><button onClick=allProducts(${i}) class="page-link" >${i}</button></li>`;
-}
-if(page > numberOfPages){
-paginationLinks +=`<button onClick=allProducts(${page+i}) class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></button>`
-}else{
-    paginationLinks += `<button class="page-link disabled" aria-label="Previous"><span aria-hidden="true">&laquo;</span></button>`
-}
+  const createPageList = (numberOfPages)=>{
+    let pages = [];
+    for(let i=1; i<=numberOfPages; i++){
+        pages.push(<li class="page-item" onClick={()=>setPage(i)}><a class="page-link" href="#">{i}</a></li>);
+    }
+    setPageList(pageList);
+  }
 
 }
 useEffect(()=>{
     allProducts();
-},[]);
-
+},[page]);
+if(products.length == 0)return <Laoder/>;
   return (
     <>
     <div className="container mt-5">
         <div className="row">
+        <h2 className='text-center'>Products</h2>
             {
                 products.map( product =>
                     <div className="col-lg-3 ">
@@ -52,8 +48,9 @@ useEffect(()=>{
                                 <h5>{product.name.substring(0,15)}...</h5>
                                 <p>{product.description.substring(0,30)}...</p>
                             </div>
-                            <div className="card-footer">
-                            <span className='color-warning '>Price:<span className='text-success'>${product.price}</span></span>
+                            <div className="card-footer d-flex gap-3  justify-content-center align-items-center">
+                            <span className='color-warning fw-bold '>Price:<span className='text-success'>${product.price}</span></span>
+                            <Link className='btn btn-dark' to={`/ProductsDetails/${product.id}`}>ProductsDetails</Link>
                             </div>
                             
                         </div>
@@ -62,16 +59,17 @@ useEffect(()=>{
                     </div>
                 )
             }
-            <nav aria-label="Page navigation example ">
+            <div className="d-flex justify-content-center align-items-center 100-vh my-3 ">
+                 <nav aria-label="Page navigation example shadow p-3 rounded ">
   <ul class="pagination m-auto">
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    {
+      pageList.map((item) => item)
+    }
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
@@ -79,6 +77,8 @@ useEffect(()=>{
     </li>
   </ul>
 </nav>
+            </div>
+           
            
             
 

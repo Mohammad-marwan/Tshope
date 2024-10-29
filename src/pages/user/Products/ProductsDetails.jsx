@@ -39,11 +39,11 @@ export default function ProductsDetails() {
  
   
   }
-  if(products.length == 0)return <Laoder /> ; 
-  
+  if(JSON.stringify(products)== '{}')return <Laoder /> ; 
   return (
     <div className="container">
     <div className="row">
+    <h1 className='text-center mt-3'>ProductsDetails</h1>
       <div className='card'>
         <div className="card-header">
         <h2> {products.name}</h2>
@@ -51,11 +51,12 @@ export default function ProductsDetails() {
         <div className="card-body">
         <img src={ProductsImg.secure_url} />
         </div>
-        <div className="card-footer d-flex justify-content-between align-items-center fw-bold fs-5">
-        <button  onClick={addToCart} className='btn btn-dark'>Add cart</button>
-        <Link  to={`/Review/${products._id}`} className='btn btn-dark'>Add Review</Link>
-        <span className='color-warning '>Price:<span className='text-success'>{products.finalPrice}$</span></span>
-        <span className='color-warning '>discount:<span className='text-danger'>{products.discount}$</span></span>
+        <div className="card-footer d-flex justify-content-between gap-1 align-items-center fw-bold fs-5">
+
+           <button  onClick={addToCart} className='btn btn-dark'>Add cart</button>
+             <Link  to={`/Review/${products._id}`} className='btn btn-dark'>Add Review</Link>
+            <span className='color-warning '>Price:<span className='text-success'>${products.finalPrice}</span></span>
+             <span className='color-warning '>discount:<span className='text-danger'>${products.discount}</span></span>
         </div>
   </div>    
     </div>

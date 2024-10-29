@@ -45,9 +45,9 @@ export default function CreateOrder() {
       
   return (
     <>
-    <h1 className='text-center'>Create Order</h1>
+    <h1 className='text-center mt-3'>Create Order</h1>
  {errors?<div className='alert alert-danger'>{errors}</div>:null}
-   <form onSubmit={formik.handleSubmit} className='w-50 m-auto shadow p-3 rounded'>
+   <form onSubmit={formik.handleSubmit} className='w-50 m-auto mb-5 shadow p-3 rounded'>
   <div className="form-floating mb-3">
     <input type="text" className="form-control" id="floatingInput" placeholder="couponName"
     name="couponName" value={formik.values.couponName} onChange={formik.handleChange} />

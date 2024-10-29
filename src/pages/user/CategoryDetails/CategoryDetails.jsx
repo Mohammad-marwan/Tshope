@@ -28,6 +28,7 @@ try{
   return (
     <div className="container">
     <div className="row">
+    <h1 className='text-center mt-3'>CategoryDetails</h1>
         {products.map(pro =>
          <div className=" col-lg-4">
           <div className="card mb-4 shadow p-3 mb-5 bg-light rounded" key={pro._id}>
@@ -35,7 +36,7 @@ try{
                 <h2>{pro.name.substring(0,10)}</h2>
             </div>
                 <div className="card-Img">
-                    <img src={pro.mainImage.secure_url} />
+                    <img src={pro.mainImage.secure_url} style={{width:"100%"}}/>
                     <div className="card-footer d-flex justify-content-between align-items-center fw-bold fs-5 ">
                             <Link className='btn btn-dark' to={`/ProductsDetails/${pro.id}`}>ProductsDetails</Link>
                             <span className='color-warning '>Price:<span className='text-success'>{pro.finalPrice}$</span></span>

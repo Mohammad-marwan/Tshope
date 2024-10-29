@@ -22,9 +22,7 @@ export default function Cart() {
 
         catch (error) {
             toast.error(error.message);
-        } finally {
-            return <Loader />
-        }
+        } 
     }
     useEffect(() => {
         getCart()
@@ -64,9 +62,7 @@ export default function Cart() {
         }
         catch (e) {
             toast.error(e.message);
-        } finally {
-            return <Loader />
-        }
+        } 
     }
     const increaseQty = async (productId) => {
         try {
@@ -84,9 +80,7 @@ export default function Cart() {
         }
         catch (error) {
             toast.error(error.message);
-        } finally {
-            return <Loader />
-        }
+        } 
     }
     const decraseQuantity = async (productId) => {
         try {
@@ -103,11 +97,9 @@ export default function Cart() {
         }
         catch (error) {
             toast.error(error.message);
-        } finally {
-            return <Loader />
-        }
+        } 
     }
-
+    if(product.length == 0)return <Loader/>;
     return (
         <>
             <h1 className='text-center'>Cart</h1>
