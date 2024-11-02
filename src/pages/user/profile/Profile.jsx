@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { FaFacebookF,FaInstagram,FaTwitter,FaTiktok   } from "react-icons/fa";
 import style from './Profile.module.css';
 import Laoder from '../../../components/user/Laoder/Laoder.jsx';
+import Myorder from '../order/Myorder.jsx'
 
 export default function Profile() {
     const [profile ,setProfile] =useState({});
@@ -50,6 +51,7 @@ export default function Profile() {
  <a href='https://x.com/?lang=ar' ><FaTwitter className={`${style.icon}`}/></a>
  <a href='https://www.tiktok.com/en/' ><FaTiktok className={`${style.icon}`}/></a>
   </div>
+  <Myorder className='me-5' /> 
                     
                 </div>
             </div>

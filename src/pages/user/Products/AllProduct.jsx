@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Laoder from '../../../components/user/Laoder/Laoder.jsx';
 import { Link } from 'react-router-dom';
+import { AiOutlineArrowDown , AiOutlineArrowUp  } from "react-icons/ai"
 export default function AllProduct() {
   const [page ,setPage] =useState(1);
   const [pageList,setPageList] = useState([]);
     const [products , setProducts] = useState([]);
+    const [search, setSearch] = useState('');
+    const [sort, setSort] = useState("");
    const allProducts = async()=>{
     try{
-        const {data} = await axios.get(`https://ecommerce-node4.onrender.com/products?page=${page}&limit=5`);
+        const {data} = await axios.get(`https://ecommerce-node4.onrender.com/products?page=${page}&limit=5&sort=${sort}&search=${search}`);
         setProducts(data.products);
         console.log(data);
         const numberOfPages = Math.ceil( data.total / 5);
@@ -19,22 +22,42 @@ export default function AllProduct() {
    catch(e){
     console.error(e);
    }
-  const createPageList = (numberOfPages)=>{
+ function createPageList(numberOfPages){
     let pages = [];
     for(let i=1; i<=numberOfPages; i++){
         pages.push(<li class="page-item" onClick={()=>setPage(i)}><a class="page-link" href="#">{i}</a></li>);
     }
-    setPageList(pageList);
+    setPageList(pages);
   }
 
 }
+
 useEffect(()=>{
     allProducts();
-},[page]);
+},[page,search,sort]);
 if(products.length == 0)return <Laoder/>;
   return (
     <>
-    <div className="container mt-5">
+    <div className="row d-flex align-items-center"> 
+      <div className="col-lg-6">
+     <form className="form-floating mx-4 mt-5">
+  <input type="text" className="form-control" id="floatingInputValue" placeholder="search" defaultValue="test@example.com" value={search} onChange={(e)=>setSearch(e.target.value)} />
+  <label htmlFor="floatingInputValue">search by products</label>
+</form>
+      </div>
+      <div className="col-lg-6">
+        <div className="d-flex gap-3 align-items-center mt-5">
+          <label className='fs-5 fw-bold '>sort by price:</label>
+        <button className=' d-flex align-items-center justify-content-center rounded-circle'style={{width:"30px",height:"30px"}} onClick={()=>setSort('price')}>
+          <AiOutlineArrowDown /> 
+        </button>
+        <button className='d-flex align-items-center justify-content-center rounded-circle'style={{width:"30px",height:"30px"}} onClick={()=>setSort('-price')}>
+          <AiOutlineArrowUp />
+        </button>
+        </div>
+      </div>
+    </div>
+    <div className="container mt-3">
         <div className="row">
         <h2 className='text-center'>Products</h2>
             {

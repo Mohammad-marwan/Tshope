@@ -52,16 +52,16 @@ catch (error) {
 if(info.length == 0)return <Laoder/>;
   return (
    <>
-   <h1 className='text-center mt-3'>My Order</h1>
    {messageserrorserrors?<div className="alert alert-danger">{messageserrorserrors}</div>:null}
-   <table className="table shadow p-3 my-5 bg-body rounded">
+  <div className="container">
+  <table className="table shadow p-3 my-5 bg-body rounded">
   <thead>
     <tr>
       <th scope="col">address</th>
       <th scope="col">phoneNumber</th>
       <th scope="col">finalPrice</th>
-      <th scope="col">name</th>
-      <th scope="col">products</th>
+      <th scope="col">paymentType</th>
+      <th scope="col">status</th>
     </tr>
   </thead>
   <tbody>
@@ -71,12 +71,8 @@ if(info.length == 0)return <Laoder/>;
       <td>{info.address}</td>
       <td>{info.phoneNumber}</td> 
      <td>{info.finalPrice}</td>
-       <td>{info.products.map(products =>
-       <div className=""key={products.productId.id}>{products.productId.name.substring(0,5)}...</div>          
-       )}</td>
-       <td>{info.products.map(products =>
-       <img style={{width:'50px'}} src={products.productId.mainImage.secure_url} key={info._id}/>        
-       )}</td>
+       <td>{info.paymentType}</td>
+       <td>{info.status}</td>
        <td><button onClick={()=>cancelOrder(info._id)} className='btn btn-danger' >cancle</button>  </td>
       
      
@@ -89,6 +85,7 @@ if(info.length == 0)return <Laoder/>;
 
   </tbody>
 </table>
+  </div>
    </>
   )
   /* <div>
