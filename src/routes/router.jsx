@@ -5,7 +5,7 @@ import Login from "../pages/user/Login/Login.jsx";
 import CategoryDetails from "../pages/user/CategoryDetails/CategoryDetails.jsx";
 import ProductsDetails from "../pages/user/Products/ProductsDetails.jsx";
 import Sendcode from "../pages/user/sendcode/Sendcode.jsx";
-import ForgotPassword from "../pages/user/ForgotPassword/ForgotPassword.jsx";
+import ForgotPassword from "../pages/user/forgotPassword/ForgotPassword.jsx";
 import CreateOrder from "../pages/user/order/CreateOrder.jsx";
 import Root from "../Root.jsx";
 import {ProtectedRoiter,PublicRoiter} from './ProtectedRoiter.jsx'

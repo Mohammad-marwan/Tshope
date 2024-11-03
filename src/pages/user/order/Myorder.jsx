@@ -53,7 +53,9 @@ if(info.length == 0)return <Laoder/>;
   return (
    <>
    {messageserrorserrors?<div className="alert alert-danger">{messageserrorserrors}</div>:null}
-  <div className="container">
+  <div className="container ">
+    <div className="row ">
+      <div className="col-lg-12 d-flex justify-content-between align-items-start">
   <table className="table shadow p-3 my-5 bg-body rounded">
   <thead>
     <tr>
@@ -62,6 +64,7 @@ if(info.length == 0)return <Laoder/>;
       <th scope="col">finalPrice</th>
       <th scope="col">paymentType</th>
       <th scope="col">status</th>
+      <th scope="col">cancel</th>
     </tr>
   </thead>
   <tbody>
@@ -85,6 +88,8 @@ if(info.length == 0)return <Laoder/>;
 
   </tbody>
 </table>
+</div>
+</div>
   </div>
    </>
   )

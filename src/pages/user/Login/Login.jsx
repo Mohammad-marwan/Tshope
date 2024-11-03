@@ -69,8 +69,8 @@ export default function Login() {
     name='password' value={formik.password} onChange={formik.handleChange} />
     <label htmlFor="floatingPassword">Password</label>
     {formik.errors.password?<div className='alert alert-danger'>{formik.errors.password}</div>:null}
-    <div className="formBtn d-flex justify-content-between align-items-center my-3 ">
-    <button className='btn btn-light ' type="submit">Login</button>
+    <div className="formBtn  my-3 ">
+    <button className='btn btn-light mx-3 ' type="submit">Login</button>
     <Link  to={'/ForgotPassword'}>ForgotPassword</Link>
     </div>
   </div>

@@ -27,6 +27,7 @@ export default function Profile() {
     },[])
     if(JSON.stringify(profile)== '{}')return <Laoder /> ; 
   return (
+    <>
     <div className="container">
         <div className="Profile my-5 text-center shadow p-3 bg-light rounded">
             <h2>Profile</h2>
@@ -51,12 +52,15 @@ export default function Profile() {
  <a href='https://x.com/?lang=ar' ><FaTwitter className={`${style.icon}`}/></a>
  <a href='https://www.tiktok.com/en/' ><FaTiktok className={`${style.icon}`}/></a>
   </div>
-  <Myorder className='me-5' /> 
                     
                 </div>
             </div>
 
         </div>
+       
     </div>
+
+     <Myorder /> 
+    </>
   )
 }
