@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from './FooterLogo/NavbarLogo.jpg'
-import style from './Footer.Module.css'
+import style from './Footer.module.css'
 import { AiFillCaretLeft,AiFillCaretRight  } from "react-icons/ai";
 import { FaFacebookF,FaInstagram,FaTwitter,FaTiktok   } from "react-icons/fa";
 export default function Footer() {
