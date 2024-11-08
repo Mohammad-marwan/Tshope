@@ -7,14 +7,15 @@ import axios from 'axios';
 import Laoder from '../../../components/user/Laoder/Laoder.jsx';
 export default function CategoryDetails() {
     const [products , setProducts] = useState([]);
+    const [errors, setErrors] = useState(null);
     const {ID} = useParams();
     const getCategores = async ()=>{
 try{
         const {data} = await axios.get(`https://ecommerce-node4.onrender.com/products/category/${ID}`);
         setProducts(data.products);
         console.log(data.products);}
-        catch(error){
-            <h2>(error.message);</h2>
+        catch(errors){
+            setErrors(e.response.data.message);
         }finally{
             
         }
@@ -28,6 +29,7 @@ try{
   return (
     <div className="container">
     <div className="row">
+    {errors?<div className="alert alert-danger w-50 m-auto text-center">{errors}</div>:null}
     <h1 className='text-center mt-3'>CategoryDetails</h1>
         {products.map(pro =>
          <div className=" col-lg-4">

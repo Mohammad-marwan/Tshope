@@ -1,10 +1,12 @@
 import { useFormik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import * as yup from 'yup';
 import style from './Register.module.css'
+import { toast } from 'react-toastify';
 
 export default function Register() {
+  const [errors, setErrors] = useState(null);
   const schema = yup.object({
     userName: yup.string().required('UserName is required'),
     email: yup.string().email('Invalid email').required('Email is required'),
@@ -17,14 +19,21 @@ export default function Register() {
       password: '',
     },
     onSubmit: async () => {
-      const {data}= await axios.post('https://ecommerce-node4.onrender.com/auth/signup',formik.values);
+      try{
+          const {data}= await axios.post('https://ecommerce-node4.onrender.com/auth/signup',formik.values);
+      toast.success('Registered successfully');
       console.log(data);
+      }catch(e){
+        setErrors(e.response.data.message);
+      }
+    
     },validationSchema:schema
   })
  
   return (
    <div className={style.bg}>
      <div className="container">
+     {errors?<div className="alert alert-danger w-50 m-auto text-center">{errors}</div>:null}
      <form onSubmit={formik.handleSubmit}className={`${style.bgregister} w-50 m-auto d-flex flex-column shadow p-3 rounded`}>
       <div className="form-floating mb-3">
     <input type="text" className="form-control" id="floatingInput" placeholder="UserName"

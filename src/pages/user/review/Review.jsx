@@ -3,8 +3,10 @@ import { Formik, useFormik } from 'formik';
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useState } from 'react';
 
 export default function Review() {
+    const [errors, setErrors] = useState(null);
     const {id} = useParams()
     console.log(id);
     const formik = useFormik({
@@ -22,10 +24,11 @@ export default function Review() {
                     Authorization: `Tariq__${localStorage.getItem('userToken')}`
                 }
             })
+             
             console.log(data);
 
         }catch(e){
-            toast.error(e);
+            setErrors(e.response.data.message);
         }
     }
     useEffect(()=>{
@@ -33,6 +36,7 @@ export default function Review() {
     },[])
   return (
     <form onSubmit={formik.handleSubmit} className='w-50 m-auto shadow p-3 rounded my-3'>
+         {errors?<div className="alert alert-danger w-50 m-auto text-center">{errors}</div>:null}
         <select class="form-select" aria-label="Default select example "
         name='rating' value={formik.values.rating} onChange={formik.handleChange}>
   <option selected>Open this select menu</option>

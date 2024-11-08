@@ -9,6 +9,7 @@ export default function AllProduct() {
     const [products , setProducts] = useState([]);
     const [search, setSearch] = useState('');
     const [sort, setSort] = useState("");
+    const [errors, setErrors] = useState(null);
    const allProducts = async()=>{
     try{
         const {data} = await axios.get(`https://ecommerce-node4.onrender.com/products?page=${page}&limit=5&sort=${sort}&search=${search}`);
@@ -20,7 +21,7 @@ export default function AllProduct() {
     }
    
    catch(e){
-    console.error(e);
+    setErrors(e.response.data.message);
    }
  function createPageList(numberOfPages){
     let pages = [];
@@ -38,6 +39,7 @@ useEffect(()=>{
 if(products.length == 0)return <Laoder/>;
   return (
     <>
+    {errors?<div className="alert alert-danger w-50 m-auto text-center">{errors}</div>:null}
     <div className="row d-flex align-items-center"> 
       <div className="col-lg-6">
      <form className="form-floating mx-4 mt-5">

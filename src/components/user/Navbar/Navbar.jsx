@@ -35,7 +35,7 @@ export default function Navbar() {
         
       <>
       <li className="nav-item">
-          <h3 className={`nav-link active ${style.ColorText}`} aria-current="page" to={'/'}>Welcom <span className='text-danger'>{userData.userName}</span></h3>
+          <Link className={`nav-link active ${style.ColorText}`} aria-current="page" to={'/'}>Welcom <span className='text-danger'>{userData.userName}</span></Link>
         </li>
       <li className="nav-item">
           <Link className={`nav-link active ${style.ColorText}`} aria-current="page" to={'/'}>Home</Link>
@@ -44,7 +44,7 @@ export default function Navbar() {
           <Link className={`nav-link active ${style.ColorText}`} aria-current="page" to={'/AllProducts'}>All Products</Link>
         </li>
         <li className="nav-item">
-          <Link className={`nav-link active ${style.ColorText}`} aria-current="page" to={'/CreateOrder'}>CreateOrder</Link>
+          <Link className={`nav-link active ${style.ColorText}`} aria-current="page" to={'/Myorder'}>Myorder</Link>
         </li>
         <li className="nav-item">
        

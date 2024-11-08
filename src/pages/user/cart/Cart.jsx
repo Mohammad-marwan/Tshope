@@ -6,6 +6,7 @@ import Loader from '../../../components/user/Laoder/Laoder.jsx'
 import { FaTrashAlt } from "react-icons/fa";
 export default function Cart() {
     const [product, setProducts] = useState([]);
+    const [errors , setErrors] = useState(null);
     const [totalincreaseQty, settotalincreaseQty] = useState([]);
     const[cartChange,setCartChange] = useState(0);
     const getCart = async () => {
@@ -22,6 +23,8 @@ export default function Cart() {
 
         catch (error) {
             toast.error(error.message);
+            setErrors(error.response.data.message)
+            
         } 
     }
     useEffect(() => {
@@ -103,6 +106,7 @@ export default function Cart() {
     return (
         <>
             <h1 className='text-center'>Cart</h1>
+            {errors?<div className="alert alert-danger w-50 m-auto text-center">{errors}</div>:null}
             <div className="container shadow p-3 mb-5 bg-body rounded">
                 <div className="div w-100 d-flex ">
                     <button className='btn btn-danger ms-auto' onClick={clearCart}><FaTrashAlt className='fs-2 ' />ClearCart</button>

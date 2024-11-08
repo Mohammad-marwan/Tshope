@@ -55,7 +55,7 @@ export default function Login() {
     <>
   <div className={style.bg}>
   <div className="container">
-    <h2>{errors}</h2>
+    {errors?<div className="alert alert-danger w-50 m-auto text-center">{errors}</div>:null}
      <form onSubmit={formik.handleSubmit} className={` w-50 m-auto d-flex flex-column shadow p-3 rounded`}>
   <div className={style.bgLogin}>
   <div className="form-floating my-3 text-center">

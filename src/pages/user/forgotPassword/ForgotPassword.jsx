@@ -3,8 +3,9 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import style from './ForgotPassword.module.css';
-
+import { toast } from 'react-toastify';
 export default function ForgotPassword() {
+  const [errors, setErrors] = useState(null);
     const formik = useFormik({
         initialValues: {
           email: '',
@@ -12,18 +13,24 @@ export default function ForgotPassword() {
           code: '',
         },
         onSubmit: async()=>{
-            const {data} = await axios.patch(`https://ecommerce-node4.onrender.com/auth/forgotPassword`,
-                formik.values
-
-            );
+          try{
+             const {data} = await axios.patch(`https://ecommerce-node4.onrender.com/auth/forgotPassword`,
+                formik.values );
             console.log(data);
             
+          }catch(e){
+            setErrors(e.response.data.message);
+          }
+           
+
+           
         }
     
     })
   return (
  <div className={style.bg}>
    <div className="container">
+   {errors?<div className="alert alert-danger w-50 m-auto text-center">{errors}</div>:null}
      <form onSubmit={formik.handleSubmit} className={`${style.bgforgot} w-50 m-auto d-flex flex-column shadow p-3 rounded`}>
   <div className="form-floating mb-3">
     <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com"
