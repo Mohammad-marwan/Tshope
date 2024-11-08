@@ -55,8 +55,8 @@ if(info.length == 0)return <Laoder/>;
    {messageserrorserrors?<div className="alert alert-danger">{messageserrorserrors}</div>:null}
   <div className="container ">
     <div className="row ">
-      <div className="col-lg-12 d-flex justify-content-between align-items-start">
-  <table className="table shadow p-3 my-5 bg-body rounded">
+      <div className="overflow-scroll col-lg-12 overflow-scroll d-flex justify-content-between align-items-start">
+  <table className="table  shadow p-3 my-5 bg-body rounded">
   <thead>
     <tr>
       <th scope="col">address</th>
